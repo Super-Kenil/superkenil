@@ -1,7 +1,11 @@
 
 const Home = () => {
   return (
-    <h1 className='text-red-500 text-4xl'>This is home page</h1>
+    <main className="flex bg-[#010101] container min-h-screen">
+      <section className="p-16">
+        <h1 className="text-6xl text-red-600">Super Kenil</h1>
+      </section>
+    </main>
   )
 }
 
