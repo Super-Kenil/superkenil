@@ -1,10 +1,27 @@
 
 import myImg from "@/assets/images/mine.webp"
+import { cn } from "@/utils"
+import { Link } from "react-router-dom"
 
 const Home = () => {
 
   let greeting
   const currHour = new Date().getHours()
+
+  const pageRoutes = [
+    {
+      name: 'Preview',
+      active: true,
+    },
+    {
+      name: 'Portfolio',
+      active: false,
+    },
+    {
+      name: 'Github',
+      active: false,
+    },
+  ]
 
   if ((currHour < 6) || (currHour > 21)) {
     greeting = 'Good Night'
@@ -23,21 +40,20 @@ const Home = () => {
         // bg-[url('@/assets/images/mine.jpg')] 
         style={{ backgroundImage: 'url(' + myImg + ')' }}
       >
-        <header className="p-16 uppercase font-bold text-sm">Super</header>
-        <div>
+        <header className="p-16 uppercase font-bold text-sm max-lg:self-center">Super</header>
 
-          <div className="px-64">
+        <div>
+          <div className="ps-64 max-lg:ps-10">
             <p className="text-2xl">Hey there!</p>
             <p>{greeting}</p>
           </div>
 
-          <div className="flex justify-between text-[170px] font-serif font-thin overflow-hidden">
-            <p className="paper-font lowercase -translate-x-24">super</p>
-            <p className="paper-font lowercase translate-x-20">kenil</p>
+          <div className="flex justify-between font-serif font-thin overflow-hidden text-[170px] max-lg:text-8xl max-lg:mt-6 max-lg:mb-[8.5rem] max-sm:flex-wrap max-sm:opacity-30">
+            <p className="paper-font lowercase -translate-x-24 max-lg:-translate-x-16">super</p>
+            <p className="paper-font lowercase translate-x-[70px] max-lg:translate-x-10">kenil</p>
           </div>
 
-
-          <div className="flex justify-between text-gray-300 px-64">
+          <div className="flex justify-between text-gray-300 px-64 max-lg:px-10">
             <div className="max-w-[210px] text-xs">
               It's me, <b>Kenil Sudani</b>. Nice to meet ya! Let me give a short introduction of myself I am a...
               <div className="grid grid-rows-2 grid-flow-col max-w-fit mt-1">
@@ -66,15 +82,22 @@ const Home = () => {
           </div>
 
         </div>
-        <nav className="p-16 flex justify-between">
-          <span>&copy; {new Date().getFullYear()}</span>
-          <ul className="flex gap-28">
-            <li className="uppercase">Preview</li>
-            <li className="uppercase">Portfolio</li>
-            <li className="uppercase">Github</li>
+        <nav className="p-16 flex justify-between max-lg:justify-center items-center max-lg:pb-7">
+          <span className="max-lg:hidden">&copy; {new Date().getFullYear()}</span>
+          <ul className="flex items-center">
+            {pageRoutes.map((menu, idx) => {
+              return (
+                <li key={idx} className={cn("uppercase h-12 w-32 flex justify-center items-center", menu.active && "rounded-[50%] border-red-600 border-[1px] rotate-[-12deg] relative")}>
+                  <Link to={''} className={cn(menu.active && "absolute rotate-[12deg]")}>
+                    {menu.name}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
-          <span></span>
+          <span className="max-lg:hidden"></span>
         </nav>
+        <span className="hidden max-lg:block self-center mb-3">&copy; {new Date().getFullYear()}</span>
       </section>
     </main>
   )
