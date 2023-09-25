@@ -1,9 +1,8 @@
-
 import myImg from "@/assets/images/mine.webp"
 import { cn } from "@/utils"
-import { Link } from "react-router-dom"
+import Link from "next/link"
 
-const Home = () => {
+export default function Home() {
 
   let greeting
   const currHour = new Date().getHours()
@@ -37,8 +36,7 @@ const Home = () => {
     <main className="flex bg-[#010101] min-h-screen text-white">
       <section
         className=" flex flex-col justify-between w-full bg-center bg-no-repeat"
-        // bg-[url('@/assets/images/mine.jpg')] 
-        style={{ backgroundImage: 'url(' + myImg + ')' }}
+        style={{ backgroundImage: 'url(' + myImg.src + ')' }}
       >
         <header className="p-16 uppercase font-bold text-sm max-lg:self-center">Super</header>
 
@@ -55,7 +53,7 @@ const Home = () => {
 
           <div className="flex justify-between text-gray-300 px-64 max-lg:px-10">
             <div className="max-w-[210px] text-xs">
-              It's me, <b>Kenil Sudani</b>. Nice to meet ya! Let me give a short introduction of myself I am a...
+              It&lsquo;s me, <b>Kenil Sudani</b>. Nice to meet ya! Let me give a short introduction of myself I am a...
               <div className="grid grid-rows-2 grid-flow-col max-w-fit mt-1">
                 <span className="row-span-2 font-bold">
                   <span>FU</span>
@@ -88,7 +86,7 @@ const Home = () => {
             {pageRoutes.map((menu, idx) => {
               return (
                 <li key={idx} className={cn("uppercase h-12 w-32 flex justify-center items-center", menu.active && "rounded-[50%] border-red-600 border-[1px] rotate-[-12deg] relative")}>
-                  <Link to={''} className={cn(menu.active && "absolute rotate-[12deg]")}>
+                  <Link href={''} className={cn(menu.active && "absolute rotate-[12deg]")}>
                     {menu.name}
                   </Link>
                 </li>
@@ -102,5 +100,3 @@ const Home = () => {
     </main>
   )
 }
-
-export default Home
