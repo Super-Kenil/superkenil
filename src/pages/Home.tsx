@@ -37,7 +37,6 @@ const Home = () => {
     <main className="flex bg-[#010101] min-h-screen text-white">
       <section
         className=" flex flex-col justify-between w-full bg-center bg-no-repeat"
-        // bg-[url('@/assets/images/mine.jpg')] 
         style={{ backgroundImage: 'url(' + myImg + ')' }}
       >
         <header className="p-16 uppercase font-bold text-sm max-lg:self-center">Super</header>
