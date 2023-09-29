@@ -40,7 +40,6 @@ const Home = () => {
         style={{ backgroundImage: 'url(' + myImg + ')' }}
       >
         <header className="p-16 uppercase font-bold text-sm max-lg:self-center">Super</header>
-
         <div>
           <div className="ps-64 max-lg:ps-10">
             <p className="text-2xl">Hey there!</p>
