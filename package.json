@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out",
+    "deploy": "gh-pages -d out -t true",
+    "postbuild": "touch out/.nojekyll",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

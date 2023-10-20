@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   basePath: '/superkenil',
-  trailingSlash: true,
+  assetPrefix: '/superkenil',
   output: 'export',
 }
 

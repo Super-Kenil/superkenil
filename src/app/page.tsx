@@ -1,10 +1,9 @@
-"use client";;
 import { cn } from "@/utils";
 import Link from "next/link";
 
 const Home = () => {
 
-
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? ''
   let greeting
   const currHour = new Date().getHours()
 
@@ -38,7 +37,7 @@ const Home = () => {
       <main className="flex bg-[#010101] min-h-screen text-white">
         <section
           className=" flex flex-col justify-between w-full bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(mine.webp)` }}
+          style={{ backgroundImage: `url(${baseUrl}/mine.webp)` }}
         >
           <header className="p-16 uppercase font-bold text-sm max-lg:self-center">Super</header>
           <div>
