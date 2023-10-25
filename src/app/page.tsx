@@ -1,10 +1,14 @@
+"use client"
 import { cn } from "@/utils";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+import mine from "@/assets/images/mine.webp"
 
 const Home = () => {
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? ''
-  let greeting
+  // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? ''
+  const [greeting, setGreeting] = useState('Good Morning')
   const currHour = new Date().getHours()
 
   const pageRoutes = [
@@ -22,22 +26,24 @@ const Home = () => {
     },
   ]
 
-  if ((currHour < 6) || (currHour > 21)) {
-    greeting = 'Good Night'
-  } else if (currHour < 12) {
-    greeting = 'Good Morning'
-  } else if (currHour < 18) {
-    greeting = 'Good Afternoon'
-  } else if (currHour < 22) {
-    greeting = 'Good Evening'
-  }
+  useEffect(() => {
+    if ((currHour < 6) || (currHour > 21)) {
+      setGreeting('Good Night')
+    } else if (currHour < 12) {
+      setGreeting('Good Morning')
+    } else if (currHour < 18) {
+      setGreeting('Good Afternoon')
+    } else if (currHour < 22) {
+      setGreeting('Good Evening')
+    }
+  }, [])
 
   return (
     <>
       <main className="flex bg-[#010101] min-h-screen text-white">
         <section
-          className=" flex flex-col justify-between w-full bg-center bg-no-repeat"
-          style={{ backgroundImage: `url(${baseUrl}/mine.webp)` }}
+          className="flex flex-col justify-between w-full bg-center bg-no-repeat overflow-x-hidden"
+          style={{ backgroundImage: `url(${mine.src})` }}
         >
           <header className="p-16 uppercase font-bold text-sm max-lg:self-center">Super</header>
           <div>
