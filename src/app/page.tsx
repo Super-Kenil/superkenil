@@ -1,27 +1,35 @@
 "use client"
 import { cn } from "@/utils";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { HTMLAttributeAnchorTarget, useEffect, useState } from "react";
 
 import mine from "@/assets/images/mine.webp"
 
-const Home = () => {
+type PageRouteType = {
+  name: string;
+  active: boolean;
+  link?: string;
+  target?: HTMLAttributeAnchorTarget
+}
 
-  // const baseUrl = process.env.NEXT_PUBLIC_BASE_URL ?? ''
+const Home = () => {
   const [greeting, setGreeting] = useState('Good Morning')
   const currHour = new Date().getHours()
 
-  const pageRoutes = [
+  const pageRoutes: PageRouteType[] = [
     {
       name: 'Preview',
       active: true,
     },
     {
-      name: 'Portfolio',
+      name: 'Builder.io',
+      link: '/builder-io',
       active: false,
     },
     {
       name: 'Github',
+      link: 'https://github.com/Super-Kenil/',
+      target: '_blank',
       active: false,
     },
   ]
@@ -92,7 +100,7 @@ const Home = () => {
               {pageRoutes.map((menu, idx) => {
                 return (
                   <li key={idx} className={cn("uppercase h-12 w-32 max-[465px]:w-[115px] flex justify-center items-center", menu.active && "rounded-[50%] border-red-600 border-[1px] rotate-[-12deg] relative")}>
-                    <Link href={''} className={cn(menu.active && "absolute rotate-[12deg]")}>
+                    <Link href={menu.link ?? ''} target={menu.target} className={cn(menu.active && "absolute rotate-[12deg]")}>
                       {menu.name}
                     </Link>
                   </li>
