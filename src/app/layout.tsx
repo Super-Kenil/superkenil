@@ -3,9 +3,10 @@ import './globals.css'
 
 export const metadata: Metadata = {
   title: 'Super Kenil',
+  
 }
 
-export default function RootLayout({
+export default function RootLayout ({
   children,
 }: {
   children: React.ReactNode

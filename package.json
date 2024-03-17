@@ -2,6 +2,11 @@
   "name": "super-kenil",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "email": "Kenilsuani.blog@gmail.com",
+    "name": "Super Kenil",
+    "url": "https://superkenil.com"
+  },
   "scripts": {
     "dev": "next dev",
     "deploy": "gh-pages -d out -t true",
