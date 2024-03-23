@@ -1,19 +1,19 @@
 "use client"
-import { cn } from "@/utils";
-import Link from "next/link";
-import { HTMLAttributeAnchorTarget, useEffect, useState } from "react";
+import { cn } from "@/utils"
+import Link from "next/link"
+import { HTMLAttributeAnchorTarget } from "react"
 
 import mine from "@/assets/images/mine.webp"
 
 type PageRouteType = {
-  name: string;
-  active: boolean;
-  link?: string;
+  name: string
+  active: boolean
+  link?: string
   target?: HTMLAttributeAnchorTarget
 }
 
 const Home = () => {
-  const [greeting, setGreeting] = useState('Good Morning')
+  let greeting = 'Good Morning'
   const currHour = new Date().getHours()
 
   const pageRoutes: PageRouteType[] = [
@@ -22,7 +22,7 @@ const Home = () => {
       active: true,
     },
     {
-      name: 'Builder.io',
+      name: 'Clones',
       link: '/builder-io',
       active: false,
     },
@@ -34,17 +34,15 @@ const Home = () => {
     },
   ]
 
-  useEffect(() => {
-    if ((currHour < 6) || (currHour > 21)) {
-      setGreeting('Good Night')
-    } else if (currHour < 12) {
-      setGreeting('Good Morning')
-    } else if (currHour < 18) {
-      setGreeting('Good Afternoon')
-    } else if (currHour < 22) {
-      setGreeting('Good Evening')
-    }
-  }, [])
+  if ((currHour < 6) || (currHour > 21)) {
+    greeting = 'Good Night'
+  } else if (currHour < 12) {
+    greeting = 'Good Morning'
+  } else if (currHour < 18) {
+    greeting = 'Good Afternoon'
+  } else if (currHour < 22) {
+    greeting = 'Good Evening'
+  }
 
   return (
     <>
@@ -114,6 +112,6 @@ const Home = () => {
       </main>
     </>
   )
-};
+}
 
 export default Home
