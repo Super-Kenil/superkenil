@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     emails: 'kenilsudani.blog@gmail.com',
     title: 'Super Kenil | Full Stack Developer',
     siteName: "Super Kenil's Portfolio",
-    images: 'https://avatars.githubusercontent.com/u/91980339?v=4'
+    images: 'https://avatars.githubusercontent.com/u/91980339'
   },
   twitter: {
     site: 'https://twitter.com/natkhat_kenil',
@@ -52,7 +52,7 @@ export default function RootLayout ({
 
   return (
     <html lang="en">
-      <body>
+      <body className='scrollBar_red'>
         {children}
       </body>
     </html>

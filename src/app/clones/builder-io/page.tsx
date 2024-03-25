@@ -1,15 +1,17 @@
 "use client"
-import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { assets } from '../utils/asset-utils'
-import { type Framework, frameworks } from '../utils/framework-utils'
+import { useState, useEffect } from 'react'
+import { Poppins } from 'next/font/google'
+const poppins = Poppins({ subsets: ['latin'], weight: '700' })
+
 import { cn } from '@/utils/cn'
-import FrameworkRotation from '../components/FrameworkRotation'
-import { getFrameworkColor } from '../helpers/colors'
-import EventCountdown from '../components/EventCountdown'
+import { assets } from './utils/asset-utils'
+import { type Framework, frameworks } from './utils/framework-utils'
+import FrameworkRotation from './components/FrameworkRotation'
+import { getFrameworkColor } from './helpers/colors'
+import EventCountdown from './components/EventCountdown'
 
-export default function Home() {
-
+const BuilderIO = () => {
   const [currentFramework, setCurrentFramework] = useState<Framework>(frameworks[0])
   const [showBackground, setShowBackground] = useState(false)
 
@@ -29,10 +31,8 @@ export default function Home() {
     setShowBackground(true)
   }, [])
 
-
-
   return (
-    <main>
+    <main className={`${poppins.className} scrollBar_red selection:${getFrameworkColor('bg', currentFramework)} bg-[#111] text-white`}>
       <div className={cn('fixed inset-0 transition-colors delay-100 duration-700 opacity-25', getFrameworkColor('bg', currentFramework))}
       />
       <Image src={assets.gradient} height={1200} width={1200} role='presentation' alt='gradiet background' className='fixed inset-0 w-screen h-screen object-cover' />
@@ -43,7 +43,7 @@ export default function Home() {
         }}
       />
 
-      <div className={cn('bg-black fixed inset-0 transition-opacity duration-[1500md]',
+      <div className={cn('bg-black fixed inset-0 transition-opacity duration-[1500ms]',
         !showBackground ? 'opacity-100' : 'opacity-0'
       )}
       />
@@ -87,3 +87,5 @@ export default function Home() {
     </main >
   )
 }
+
+export default BuilderIO

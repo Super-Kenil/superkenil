@@ -1,7 +1,8 @@
 "use client"
+import { useEffect, useState } from "react"
+
 import calculateTimeToEvent from "../utils/countdown"
 import { type Framework } from "../utils/framework-utils"
-import { useEffect, useState } from "react"
 import TimeUnit from "./TimeUnit"
 
 const EventCountdown = ({ currentFramework }: { currentFramework: Framework }) => {

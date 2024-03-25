@@ -16,13 +16,6 @@
 /* .paper-font {
   font-family: 'Dancing Script','Poppins', serif;
 } */
-.paper-font {
-  font-family: 'Cormorant Garamond','Poppins', serif;
-}
-
-body {
-  font-family: 'Playfair Display','Poppins', serif;
-}
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -33,7 +26,17 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
   background-color: #b91c1c;
+  border-left: 2px solid #160c0c;
+  border-right: 4px solid #160c0c;
+}
+
+.scrollBar_green::-webkit-scrollbar-thumb {
+  background-color: #1cb948;
   border-left: 2px solid #160c0c;
   border-right: 4px solid #160c0c;
   border-radius: 3px;

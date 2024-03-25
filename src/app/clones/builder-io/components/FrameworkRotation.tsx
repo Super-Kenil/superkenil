@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
-import { assets } from '../utils/asset-utils'
 import { cn } from '@/utils/cn'
+import { assets } from '../utils/asset-utils'
 import { frameworks, type Framework } from '../utils/framework-utils'
 
 const FrameworkRotation = ({ currentFramework }: { currentFramework: Framework }) => {

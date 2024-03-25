@@ -1,7 +1,9 @@
 "use client"
-import { cn } from "@/utils"
-import Link from "next/link"
 import { HTMLAttributeAnchorTarget } from "react"
+import { cn } from "@/utils/cn"
+import Link from "next/link"
+import styles from './index.module.css'
+
 
 import mine from "@/assets/images/mine.webp"
 
@@ -23,7 +25,7 @@ const Home = () => {
     },
     {
       name: 'Clones',
-      link: '/builder-io',
+      link: '/clones/builder-io',
       active: false,
     },
     {
@@ -46,7 +48,7 @@ const Home = () => {
 
   return (
     <>
-      <main className="flex bg-[#010101] min-h-screen text-white">
+      <main className="flex bg-[#010101] min-h-screen text-white" style={{ fontFamily: "'Playfair Display','Poppins', serif" }}>
         <section
           className="flex flex-col justify-between w-full bg-center bg-no-repeat overflow-x-hidden"
           style={{ backgroundImage: `url(${mine.src})` }}
@@ -59,8 +61,8 @@ const Home = () => {
             </div>
 
             <div className="flex justify-between font-serif font-thin overflow-hidden text-[170px] max-lg:text-8xl max-lg:mt-6 max-lg:mb-[8.5rem] max-[400px]:mb-[4rem] max-sm:flex-wrap max-sm:opacity-30">
-              <p className="paper-font lowercase -translate-x-24 max-lg:-translate-x-16">super</p>
-              <p className="paper-font lowercase translate-x-[70px] max-lg:translate-x-10 max-[400px]:translate-x-60 max-[400px]:translate-y-4 z-10">kenil</p>
+              <p className={`${styles.paper_font} lowercase -translate-x-24 max-lg:-translate-x-16`}>super</p>
+              <p className={`${styles.paper_font} lowercase translate-x-[70px] max-lg:translate-x-10 max-[400px]:translate-x-60 max-[400px]:translate-y-4 z-10`}>kenil</p>
             </div>
 
             <div className="flex justify-between text-gray-300 px-64 max-lg:px-10">
