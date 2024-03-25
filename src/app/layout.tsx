@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
+
 import './globals.css'
 
 const calculateExperince = () => {
@@ -52,7 +53,7 @@ export default function RootLayout ({
 
   return (
     <html lang="en">
-      <body className='scrollBar_red'>
+      <body>
         {children}
       </body>
     </html>
