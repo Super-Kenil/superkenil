@@ -1,34 +1,38 @@
 {
   "name": "super-kenil",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "author": {
-    "email": "Kenilsuani.blog@gmail.com",
+    "email": "Kenilsudani.blog@gmail.com",
     "name": "Super Kenil",
     "url": "https://superkenil.com"
   },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "touch out/.nojekyll",
+    "deploy": "gh-pages -d out -t true",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "latest": "yarn upgrade-interactive --latest"
   },
   "dependencies": {
-    "clsx": "^2.0.0",
-    "next": "^14.0.4",
+    "clsx": "^2.1.0",
+    "next": "^14.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tailwind-merge": "^1.14.0"
+    "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
-    "@types/node": "^20.8.3",
-    "@types/react": "^18.2.25",
-    "@types/react-dom": "^18.2.11",
-    "autoprefixer": "^10.4.16",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "^14.0.4",
-    "postcss": "^8.4.31",
-    "tailwindcss": "^3.3.3",
-    "typescript": "^5.3.3"
+    "@types/node": "^20.11.30",
+    "@types/react": "^18.2.70",
+    "@types/react-dom": "^18.2.22",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.4",
+    "gh-pages": "^6.1.1",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.3"
   }
 }
